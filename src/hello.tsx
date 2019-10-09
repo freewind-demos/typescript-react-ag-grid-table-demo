@@ -74,13 +74,7 @@ export default function Hello() {
 
   return <div>
     <h1>Hello React-AgGrid</h1>
-    <div
-      className="ag-theme-balham"
-      style={{
-        height: '300px',
-        width: '600px'
-      }}
-    >
+    <div className="ag-theme-balham">
       <div>
         <button onClick={addNewRow}>Add</button>
         <button onClick={addNewRowAndEdit}>Add & Edit</button>
@@ -91,7 +85,9 @@ export default function Hello() {
         columnDefs={columnDefs}
         rowSelection='multiple'
         rowData={rowData}
-        onGridReady={params => setGridApi(params.api)}>
+        singleClickEdit={true}
+        onGridReady={params => setGridApi(params.api)}
+        stopEditingWhenGridLosesFocus={true}>
       </AgGridReact>
     </div>
   </div>
